@@ -1,8 +1,8 @@
-def count_substring(text: str, sub_string: str):
+def count_substring(text: str, sub_string: str) -> int:
     counter: int = 0
     len_of_text: int = len(text)
     len_of_sub_string: int = len(sub_string)
-    index = 0
+    index: int = 0
     for i in list(text):
         if index < (len_of_text - len_of_sub_string + 1):
             success = text.find(sub_string, index, index + len_of_sub_string)
