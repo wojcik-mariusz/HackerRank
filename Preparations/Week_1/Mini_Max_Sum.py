@@ -1,21 +1,12 @@
-#!/bin/python3
+from typing import List, NoReturn
 
-import math
-import os
-import random
-import re
-import sys
 
-#
-# Complete the 'miniMaxSum' function below.
-#
-# The function accepts INTEGER_ARRAY arr as parameter.
-#
+def miniMaxSum(arr: List[int]) -> NoReturn:
+    arr.sort(reverse=True)
+    print(sum(arr[1:]), sum(arr[:-1]), sep=" ")
 
-def miniMaxSum(arr):
-    pass
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     arr = list(map(int, input().rstrip().split()))
 
