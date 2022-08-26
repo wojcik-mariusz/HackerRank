@@ -6,6 +6,9 @@ import random
 import re
 import sys
 
+from typing import List
+from itertools import combinations
+
 #
 # Complete the 'divisibleSumPairs' function below.
 #
@@ -16,11 +19,18 @@ import sys
 #  3. INTEGER_ARRAY ar
 #
 
-def divisibleSumPairs(n, k, ar):
-    # Write your code here
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+def divisibleSumPairs(n: int, k: int, ar: List[int]) -> int:
+    list_of_pairs = []
+    possible_pairs = list(combinations(ar, 2))
+    for pair in possible_pairs:
+        if (pair[0] + pair[1]) % k == 0:
+            list_of_pairs.append(pair)
+    return len(list_of_pairs)
+
+
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     first_multiple_input = input().rstrip().split()
 
@@ -32,6 +42,6 @@ if __name__ == '__main__':
 
     result = divisibleSumPairs(n, k, ar)
 
-    fptr.write(str(result) + '\n')
+    fptr.write(str(result) + "\n")
 
     fptr.close()
