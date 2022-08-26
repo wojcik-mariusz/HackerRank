@@ -1,7 +1,10 @@
 import sys
 from typing import List, NoReturn
 
-for line in sys.stdin.readlines():
+s = sys.stdin.read()
+lines = s.splitlines()
+
+for line in lines:
     line = line.split(";")
     operation = line[0]
     type_output = line[1]
