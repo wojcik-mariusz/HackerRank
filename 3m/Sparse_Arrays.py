@@ -6,6 +6,8 @@ import random
 import re
 import sys
 
+from typing import List
+
 #
 # Complete the 'matchingStrings' function below.
 #
@@ -15,10 +17,15 @@ import sys
 #  2. STRING_ARRAY queries
 #
 
-def matchingStrings(strings, queries):
-    pass
 
-if __name__ == '__main__':
+def matchingStrings(strings: List[str], queries: List[str]) -> List[int]:
+    list_of_frequencies: List[int] = []
+    for query in queries:
+        list_of_frequencies.append(strings.count(query))
+    return list_of_frequencies
+
+
+if __name__ == "__main__":
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
     strings_count = int(input().strip())
