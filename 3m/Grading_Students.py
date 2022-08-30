@@ -5,6 +5,7 @@ import os
 import random
 import re
 import sys
+from typing import List
 
 #
 # Complete the 'gradingStudents' function below.
@@ -13,23 +14,44 @@ import sys
 # The function accepts INTEGER_ARRAY grades as parameter.
 #
 
-def gradingStudents(grades):
-    # Write your code here
+
+def gradingStudents(grades: list[int]) -> List[int]:
+    output_list = []
+    for grade in grades:
+        # if grade <= 5:
+        #     continue
+        if grade < 38 or not grade % 5 >= 3:
+            output_list.append(grade)
+        else:
+            grade += (5 - grade%5)
+            output_list.append(grade)
+    return output_list
+
 
 if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    # fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    #
+    # grades_count = int(input().strip())
 
-    grades_count = int(input().strip())
+    grades = [2, 5, 0, 4, 73, 67, 38, 33]
 
-    grades = []
-
-    for _ in range(grades_count):
-        grades_item = int(input().strip())
-        grades.append(grades_item)
+    # for _ in range(grades_count):
+    #     grades_item = int(input().strip())
+    #     grades.append(grades_item)
 
     result = gradingStudents(grades)
+    print(result)
 
-    fptr.write('\n'.join(map(str, result)))
-    fptr.write('\n')
+    gr = 73
+    print(gr%5)
+    gr += (5 - gr%5)
+    print(gr)
+    gr = 67
+    print(gr % 5)
+    gr += (5 - gr % 5)
+    print(gr)
 
-    fptr.close()
+    # fptr.write('\n'.join(map(str, result)))
+    # fptr.write('\n')
+    #
+    # fptr.close()
