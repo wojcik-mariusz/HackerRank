@@ -18,8 +18,6 @@ from typing import List
 def gradingStudents(grades: list[int]) -> List[int]:
     output_list = []
     for grade in grades:
-        # if grade <= 5:
-        #     continue
         if grade < 38 or not grade % 5 >= 3:
             output_list.append(grade)
         else:
